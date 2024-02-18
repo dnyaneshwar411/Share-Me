@@ -35,12 +35,9 @@ export default function Login() {
       })
   }
 
-  console.log(dummyUser)
-
   function setDummyUser() {
     localStorage.setItem("user", JSON.stringify(dummyUser));
     navigate("/", { replace: true });
-    console.log("navigated to home page")
   }
 
   function onFailure(err) {
