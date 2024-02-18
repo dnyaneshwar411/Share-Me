@@ -9,6 +9,9 @@ import logo from "/assets/logowhite.png"
 import { useEffect } from "react"
 import { client } from "../client"
 
+import { MdPerson } from "react-icons/md";
+import { dummyUser } from "../utils/fetchUser"
+
 const KEY = import.meta.env.VITE_REACT_APP_GOOGLE_API_TOKEN
 
 export default function Login() {
@@ -31,6 +34,15 @@ export default function Login() {
         navigate("/", { replace: true });
       })
   }
+
+  console.log(dummyUser)
+
+  function setDummyUser() {
+    localStorage.setItem("user", JSON.stringify(dummyUser));
+    navigate("/", { replace: true });
+    console.log("navigated to home page")
+  }
+
   function onFailure(err) {
     console.log("failure - ", err);
   }
@@ -74,7 +86,12 @@ export default function Login() {
             cookiePolicy="single_host_origin"
           />
         </div>
+        <div className="shadow-2xl">
+          <button onClick={setDummyUser} className="bg-mainColor flex justify-center items-center p-3 rounded-lg pointer outline-none my-2">
+            <MdPerson className="mr-2 text-2xl" /> Guest Login
+          </button>
+        </div>
       </div>
     </div>
   </div>
-};
+}
