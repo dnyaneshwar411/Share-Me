@@ -15,12 +15,11 @@ export default function Feed() {
       setLoading(true)
       if (categoryId) {
          const query = searchQuery(categoryId);
-
          client.fetch(query)
             .then(data => {
                setPins(data);
                setLoading(false);
-            })
+            });
       } else {
          client.fetch(feedQuery).then(data => {
             setPins(data);

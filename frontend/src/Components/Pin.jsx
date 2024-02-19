@@ -56,7 +56,6 @@ export default function Pin({ pin: { postedBy, image, _id, destination, save } }
          className="relative cursor-zoom-in w-auto hover:shadow-lg rounded-lg overflow-hidden transition-all duration-500 ease-in-out"
          onClick={() => navigate(`/pin-detail/${_id}`)}
       >
-
          <img src={urlFor(image).width(250).url()} className="rounded-lg w-full" alt="user-post" />
          {postHovered && (
             <div

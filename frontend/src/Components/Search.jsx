@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import MasonryLayout from './MasonryLayout';
 import { client } from '../client';
@@ -27,7 +27,6 @@ const Search = ({ searchTerm }) => {
 
    return (
       <div>
-
          {loading && <Spinner message="Searching pins" />}
          {pins?.length !== 0 && <MasonryLayout pins={pins} />}
          {pins?.length === 0 && searchTerm !== '' && !loading && (
